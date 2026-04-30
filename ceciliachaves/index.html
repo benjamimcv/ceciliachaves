@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cecilia Chaves — Apresentadora, Confeiteira, Comunicadora</title>
+  <meta name="description" content="Há mais de 20 anos transformando gastronomia em narrativa, audiência e afeto. Apresentadora do Na Cozinha com Cecilia Chaves na TV Tribuna | Band.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:wght@300;400;500&family=Caveat:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Subtle warm gradient on page background */
+    body {
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(239, 159, 39, 0.08) 0%, transparent 60%),
+        var(--creme);
+    }
+
+    /* HERO */
+    .hero {
+      padding: 56px 24px 48px;
+      overflow: hidden;
+      position: relative;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 80px;
+      left: -40px;
+      width: 180px;
+      height: 180px;
+      background: radial-gradient(circle, rgba(239, 159, 39, 0.18) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .hero__inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 64px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+    .hero__handwritten {
+      font-family: 'Caveat', cursive;
+      font-weight: 500;
+      font-size: 28px;
+      color: var(--terracota);
+      margin: 0 0 12px;
+      transform: rotate(-2deg);
+      display: inline-block;
+    }
+    .hero__roles {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 36px;
+    }
+    .hero__ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 48px;
+    }
+    .hero__meta {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      padding-top: 28px;
+      border-top: 0.5px solid rgba(74, 27, 12, 0.18);
+      flex-wrap: wrap;
+    }
+    .hero__meta-label {
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--canela);
+      margin-bottom: 4px;
+    }
+    .hero__meta-value {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 17px;
+      color: var(--cacau);
+    }
+    .hero__meta-divider {
+      width: 1px;
+      height: 28px;
+      background: rgba(74, 27, 12, 0.18);
+    }
+    .hero__visual {
+      position: relative;
+      aspect-ratio: 3 / 4;
+    }
+    .hero__photo {
+      width: 100%;
+      height: 100%;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      position: relative;
+      background: linear-gradient(135deg, var(--terracota) 0%, var(--cacau) 100%);
+    }
+    .hero__photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 35%;
+    }
+    .hero__photo::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 60%, rgba(74, 27, 12, 0.55) 100%);
+      pointer-events: none;
+      z-index: 1;
+    }
+    .hero__photo-caption {
+      position: absolute;
+      left: 24px;
+      bottom: 24px;
+      right: 24px;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--creme);
+    }
+    .hero__photo-caption-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--mel);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .hero__photo-caption-text {
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 1.4;
+    }
+    .hero__badge {
+      position: absolute;
+      top: -16px;
+      right: -16px;
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      background: var(--mel);
+      color: var(--cacau);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      transform: rotate(-8deg);
+      z-index: 3;
+      box-shadow: 0 12px 32px rgba(74, 27, 12, 0.22);
+      animation: badgeBob 4s ease-in-out infinite;
+    }
+    @keyframes badgeBob {
+      0%, 100% { transform: rotate(-8deg) translateY(0); }
+      50% { transform: rotate(-6deg) translateY(-4px); }
+    }
+    .hero__badge-day {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 1;
+    }
+    .hero__badge-time {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 1;
+      margin: 4px 0 4px;
+    }
+    .hero__badge-channel {
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 9px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    /* STATS BAR */
+    .stats {
+      background: var(--terracota);
+      color: var(--creme);
+      padding: 56px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .stats::before {
+      content: '';
+      position: absolute;
+      top: -80px;
+      right: -80px;
+      width: 240px;
+      height: 240px;
+      background: radial-gradient(circle, rgba(239, 159, 39, 0.4) 0%, transparent 60%);
+      border-radius: 50%;
+    }
+    .stats__inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      position: relative;
+    }
+    .stat {
+      text-align: left;
+      padding-right: 32px;
+      position: relative;
+    }
+    .stat:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 12px;
+      bottom: 12px;
+      width: 1px;
+      background: rgba(253, 245, 238, 0.25);
+    }
+    .stat__number {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: clamp(40px, 6vw, 72px);
+      line-height: 1;
+      margin: 0 0 12px;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+    .stat__number-mark {
+      font-family: 'Caveat', cursive;
+      font-size: 28px;
+      color: var(--mel);
+      transform: rotate(-8deg);
+      display: inline-block;
+    }
+    .stat__label {
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: 14px;
+      letter-spacing: 0.04em;
+      opacity: 0.9;
+      max-width: 240px;
+    }
+    .stats__source {
+      max-width: var(--max-width);
+      margin: 32px auto 0;
+      padding: 0 24px;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.6;
+      position: relative;
+    }
+
+    /* SOBRE */
+    .sobre {
+      position: relative;
+    }
+    .sobre__inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .sobre__visual-wrap {
+      position: relative;
+    }
+    .sobre__visual {
+      aspect-ratio: 4 / 5;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background: var(--pessego);
+      position: relative;
+      z-index: 1;
+    }
+    .sobre__visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 25%;
+    }
+    .sobre__circle {
+      position: absolute;
+      bottom: -24px;
+      right: -24px;
+      width: 140px;
+      height: 140px;
+      border: 2px solid var(--mel);
+      border-radius: 50%;
+      z-index: 0;
+    }
+    .sobre__quote {
+      margin: 32px 0;
+      padding: 24px 28px;
+      border-left: 3px solid var(--terracota);
+      background: var(--creme);
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 19px;
+      line-height: 1.5;
+      color: var(--cacau);
+      position: relative;
+      border-radius: 0 8px 8px 0;
+    }
+    .sobre__quote-mark {
+      position: absolute;
+      top: -4px;
+      left: 16px;
+      font-family: var(--font-display);
+      font-size: 48px;
+      color: var(--mel);
+      line-height: 1;
+    }
+
+    /* PILLARS */
+    .pillars__head {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+    .pillars__grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+    .pillar {
+      position: relative;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      aspect-ratio: 4 / 5;
+      background: var(--cacau);
+      display: flex;
+      align-items: flex-end;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .pillar:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(74, 27, 12, 0.25);
+    }
+    .pillar img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+      transition: transform 0.6s ease;
+    }
+    .pillar:hover img {
+      transform: scale(1.04);
+    }
+    .pillar::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 30%, rgba(74, 27, 12, 0.85) 100%);
+      z-index: 1;
+    }
+    .pillar__content {
+      position: relative;
+      z-index: 2;
+      padding: 32px;
+      color: var(--creme);
+      width: 100%;
+    }
+    .pillar__eyebrow {
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--mel);
+      margin-bottom: 12px;
+    }
+    .pillar__title {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: 28px;
+      line-height: 1.15;
+      margin: 0 0 12px;
+    }
+    .pillar__title em {
+      font-style: italic;
+    }
+    .pillar__desc {
+      font-size: 14px;
+      line-height: 1.55;
+      opacity: 0.9;
+      margin: 0 0 20px;
+      max-width: 380px;
+    }
+    .pillar__cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--creme);
+      border-bottom: 1px solid var(--mel);
+      padding-bottom: 4px;
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+    .pillar__cta:hover {
+      color: var(--mel);
+    }
+    .pillar__cta svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    /* SUB-BRANDS */
+    .subbrands {
+      padding: 64px 24px;
+      border-top: 0.5px solid rgba(74, 27, 12, 0.12);
+      border-bottom: 0.5px solid rgba(74, 27, 12, 0.12);
+      background: var(--creme);
+    }
+    .subbrands__head {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .subbrands__grid {
+      max-width: 800px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      align-items: center;
+    }
+    .subbrand {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 12px;
+      padding: 24px;
+      border-radius: var(--radius-md);
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+    .subbrand:hover {
+      background: var(--creme-warm);
+      transform: translateY(-2px);
+    }
+    .subbrand__logo {
+      width: 96px;
+      height: 96px;
+      object-fit: contain;
+      object-position: center;
+    }
+    .subbrand__name {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--cacau);
+      margin: 0;
+    }
+    .subbrand__tag {
+      font-family: var(--font-body);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--canela);
+    }
+
+    /* CTA STRIP */
+    .cta-strip {
+      background: var(--cacau);
+      color: var(--creme);
+      padding: 80px 24px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-strip::before,
+    .cta-strip::after {
+      content: '';
+      position: absolute;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(239, 159, 39, 0.18) 0%, transparent 60%);
+    }
+    .cta-strip::before {
+      top: -100px;
+      left: -100px;
+    }
+    .cta-strip::after {
+      bottom: -100px;
+      right: -100px;
+    }
+    .cta-strip__inner {
+      max-width: 720px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .cta-strip__handwritten {
+      font-family: 'Caveat', cursive;
+      font-weight: 500;
+      font-size: 28px;
+      color: var(--mel);
+      margin: 0 0 12px;
+      transform: rotate(-2deg);
+      display: inline-block;
+    }
+    .cta-strip h2 {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.2;
+      margin: 0 0 16px;
+      color: var(--creme);
+    }
+    .cta-strip h2 em {
+      font-style: italic;
+      color: var(--mel);
+    }
+    .cta-strip p {
+      font-size: 16px;
+      line-height: 1.65;
+      margin: 0 0 32px;
+      color: var(--pessego);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 960px) {
+      .hero { padding: 32px 20px 32px; }
+      .hero__inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .hero__visual {
+        aspect-ratio: 4 / 5;
+        max-width: 480px;
+        margin: 0 auto;
+        width: 100%;
+      }
+      .hero__badge {
+        width: 88px;
+        height: 88px;
+        top: -12px;
+        right: -8px;
+      }
+      .hero__badge-time { font-size: 18px; }
+      .hero__badge-day { font-size: 13px; }
+
+      .stats__inner {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .stat:not(:last-child)::after { display: none; }
+      .stat:not(:last-child) {
+        padding-bottom: 32px;
+        border-bottom: 0.5px solid rgba(253, 245, 238, 0.18);
+      }
+
+      .sobre__inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .sobre__visual-wrap {
+        max-width: 440px;
+        margin: 0 auto;
+        width: 100%;
+      }
+
+      .pillars__grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .pillar { aspect-ratio: 4 / 3; }
+      .pillar__title { font-size: 24px; }
+
+      .subbrands__grid {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+      .subbrand__logo {
+        width: 80px;
+        height: 80px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero__meta-divider { display: none; }
+      .hero__meta > div { flex: 1 1 45%; }
+      .btn {
+        flex: 1 1 auto;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="index.html" class="site-logo">
+        Cecilia Chaves
+        <small>Apresentadora · Confeiteira</small>
+      </a>
+      <button class="menu-toggle" aria-label="Abrir menu" id="menuToggle">
+        <span class="menu-toggle__bar"></span>
+      </button>
+      <nav class="site-nav" id="siteNav">
+        <a href="index.html" class="site-nav__link site-nav__link--active">Home</a>
+        <a href="comercial.html" class="site-nav__link">Comercial</a>
+        <a href="bolos.html" class="site-nav__link">Bolos</a>
+        <a href="cursos.html" class="site-nav__link">Cursos</a>
+        <a href="https://wa.me/5581986392033?text=Ol%C3%A1%2C+gostaria+de+falar+com+a+Cecilia." class="site-nav__cta" target="_blank" rel="noopener">Fale comigo</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero__inner">
+      <div>
+        <span class="hero__handwritten">olá, sou a Cecilia ✨</span>
+        <h1 class="h-display">Gastronomia que <em>conecta</em> marcas, mesas e gerações.</h1>
+        <p class="lede">Há mais de 20 anos transformando cultura culinária em narrativa, audiência e afeto — na televisão, nas redes e nos bolos que saem da minha cozinha em Recife.</p>
+
+        <div class="hero__roles">
+          <span class="pill">TV Tribuna · Band</span>
+          <span class="pill">Instagram</span>
+          <span class="pill">Cursos</span>
+          <span class="pill">Bolos sob encomenda</span>
+        </div>
+
+        <div class="hero__ctas">
+          <a class="btn btn--primary" href="comercial.html">
+            Quero conhecer as oportunidades
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+          <a class="btn btn--secondary" href="#programa">Quero assistir o programa</a>
+        </div>
+
+        <div class="hero__meta">
+          <div>
+            <div class="hero__meta-label">No ar</div>
+            <div class="hero__meta-value">Sábados, 10h</div>
+          </div>
+          <div class="hero__meta-divider"></div>
+          <div>
+            <div class="hero__meta-label">Onde</div>
+            <div class="hero__meta-value">TV Tribuna · Band</div>
+          </div>
+          <div class="hero__meta-divider"></div>
+          <div>
+            <div class="hero__meta-label">Desde</div>
+            <div class="hero__meta-value">Recife, PE</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero__visual">
+        <div class="hero__photo">
+          <img src="https://limegreen-whale-302962.hostingersite.com/wp-content/uploads/2026/02/Cecilia-Demonstrando.png" alt="Cecilia Chaves">
+          <div class="hero__photo-caption">
+            <div class="hero__photo-caption-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4A1B0C" stroke-width="2.5"><path d="M5 17l5-5-5-5M13 17l5-5-5-5"/></svg>
+            </div>
+            <div class="hero__photo-caption-text">Na Cozinha com Cecilia Chaves</div>
+          </div>
+        </div>
+        <div class="hero__badge">
+          <div class="hero__badge-day">Todo</div>
+          <div class="hero__badge-time">Sábado</div>
+          <div class="hero__badge-channel">10h · Tribuna</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats">
+    <div class="stats__inner">
+      <div class="stat">
+        <div class="stat__number">20<span class="stat__number-mark">anos</span></div>
+        <div class="stat__label">de autoridade culinária na TV e na cultura gastronômica do Nordeste</div>
+      </div>
+      <div class="stat">
+        <div class="stat__number">70,1 mil</div>
+        <div class="stat__label">seguidores no Instagram com 145 de afinidade no eixo gastronômico</div>
+      </div>
+      <div class="stat">
+        <div class="stat__number">47 mil</div>
+        <div class="stat__label">de alcance acumulado na TV Tribuna no Grande Recife em 2025</div>
+      </div>
+    </div>
+    <div class="stats__source">Fonte: Kantar IBOPE Media · Instar Analytics · Grande Recife · 2025</div>
+  </section>
+
+  <!-- SOBRE -->
+  <section class="section section--cream sobre">
+    <div class="container sobre__inner">
+      <div class="sobre__visual-wrap">
+        <div class="sobre__visual">
+          <img src="assets/images/sobre-cecilia.jpg" alt="Cecilia Chaves comemorando">
+        </div>
+        <div class="sobre__circle"></div>
+      </div>
+      <div>
+        <div class="eyebrow">Sobre Cecilia</div>
+        <h2 class="h-section">Uma plataforma de <em>conexão</em>, cultura e <em>celebração</em>.</h2>
+        <p class="lede">Jornalista por formação, apresentadora por vocação, confeiteira por afeto. Construí uma marca sólida, multiplataforma e com alta afinidade com o público feminino das classes ABC — unindo tradição, cultura e estratégia comercial em um único projeto. E acima de tudo, muita alegria.</p>
+        <div class="sobre__quote">
+          <span class="sobre__quote-mark">"</span>
+          O amor que você coloca no bolo é o que você transmite às pessoas.
+        </div>
+        <a href="comercial.html" class="btn btn--ghost">
+          Conheça a plataforma comercial
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PILLARS -->
+  <section class="section section--white" id="programa">
+    <div class="container">
+      <div class="pillars__head">
+        <div class="eyebrow eyebrow--center">Quatro frentes, uma marca</div>
+        <h2 class="h-section">Onde a Cecilia <em>encontra</em> o seu público.</h2>
+      </div>
+
+      <div class="pillars__grid">
+        <a class="pillar" href="comercial.html#tv">
+          <img src="assets/images/tv-bts.jpg" alt="Bastidores Na Cozinha com Cecilia Chaves">
+          <div class="pillar__content">
+            <div class="pillar__eyebrow">TV · Tribuna · Band</div>
+            <h3 class="pillar__title">Na Cozinha com <em>Cecilia Chaves</em></h3>
+            <p class="pillar__desc">Programa semanal aos sábados, 10h. 22,5 mil de alcance por exibição no Grande Recife.</p>
+            <span class="pillar__cta">
+              Patrocine o programa
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </span>
+          </div>
+        </a>
+
+        <a class="pillar" href="comercial.html#digital">
+          <img src="assets/images/instagram-cecilia.png" alt="Marketing de influência no Instagram">
+          <div class="pillar__content">
+            <div class="pillar__eyebrow">Digital · Instagram</div>
+            <h3 class="pillar__title">Marketing de <em>influência</em></h3>
+            <p class="pillar__desc">70,1 mil seguidores ativos. Conteúdo afetivo que gera identificação real e conversão para marcas.</p>
+            <span class="pillar__cta">
+              Quero ativar minha marca
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </span>
+          </div>
+        </a>
+
+        <a class="pillar" href="bolos.html">
+          <img src="assets/images/bolos-pernambuco.jpg" alt="Confeitaria Cecilia Chaves">
+          <div class="pillar__content">
+            <div class="pillar__eyebrow">Confeitaria · Recife</div>
+            <h3 class="pillar__title">Bolos sob <em>encomenda</em></h3>
+            <p class="pillar__desc">Bolos de noiva pernambucanos, sobremesas regionais e criações afetivas para datas que importam.</p>
+            <span class="pillar__cta">
+              Quero encomendar um bolo
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </span>
+          </div>
+        </a>
+
+        <a class="pillar" href="cursos.html">
+          <img src="assets/images/cursos-cecilia.jpg" alt="Cursos online Cecilia Chaves">
+          <div class="pillar__content">
+            <div class="pillar__eyebrow">Educação · Online</div>
+            <h3 class="pillar__title">Cursos <em>online</em></h3>
+            <p class="pillar__desc">20+ anos de experiência transformados em conteúdo prático para quem quer fazer bolo profissional em casa.</p>
+            <span class="pillar__cta">
+              Quero conhecer os cursos
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUB-BRANDS -->
+  <section class="subbrands">
+    <div class="subbrands__head">
+      <div class="eyebrow eyebrow--center">As marcas Cecilia Chaves</div>
+    </div>
+    <div class="subbrands__grid">
+      <a class="subbrand" href="bolos.html">
+        <img class="subbrand__logo" src="assets/logos/cake-shop.jpg" alt="Cecilia Chaves Cake Shop">
+        <div class="subbrand__name">Cake Shop</div>
+        <div class="subbrand__tag">Bolos sob encomenda</div>
+      </a>
+      <a class="subbrand" href="cursos.html">
+        <img class="subbrand__logo" src="assets/logos/cursos-online.jpg" alt="Cecilia Chaves Cursos Online">
+        <div class="subbrand__name">Cursos Online</div>
+        <div class="subbrand__tag">Confeitaria profissional</div>
+      </a>
+      <a class="subbrand" href="bolos.html#bolo-noiva">
+        <img class="subbrand__logo" src="assets/logos/logo-2.png" alt="Bolo de Noiva Pernambucano">
+        <div class="subbrand__name">Bolo de Noiva</div>
+        <div class="subbrand__tag">Tradição pernambucana</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="cta-strip">
+    <div class="cta-strip__inner">
+      <span class="cta-strip__handwritten">vamos juntos? ✨</span>
+      <h2>Toda boa <em>história</em> começa com uma conversa.</h2>
+      <p>Seja para patrocinar o programa, encomendar um bolo ou conhecer os cursos — estou a uma mensagem de distância.</p>
+      <a href="https://wa.me/5581986392033?text=Ol%C3%A1+Cecilia%2C+gostaria+de+falar+com+voc%C3%AA." class="btn btn--on-dark" target="_blank" rel="noopener">
+        Falar no WhatsApp
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div class="site-footer__top">
+        <div class="site-footer__brand-block">
+          <h3 class="site-footer__brand">Cecilia Chaves</h3>
+          <div class="site-footer__brand-tag">Apresentadora · Confeiteira · Comunicadora</div>
+          <p class="site-footer__bio">Há mais de 20 anos transformando gastronomia em narrativa, audiência e afeto. De Recife para o Brasil.</p>
+        </div>
+        <div>
+          <h4 class="site-footer__title">Navegar</h4>
+          <ul class="site-footer__list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="comercial.html">Comercial</a></li>
+            <li><a href="bolos.html">Bolos</a></li>
+            <li><a href="cursos.html">Cursos</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="site-footer__title">Contato</h4>
+          <ul class="site-footer__list">
+            <li><a href="https://wa.me/5581986392033" target="_blank" rel="noopener">WhatsApp</a></li>
+            <li><a href="https://instagram.com/cecilia_chaves" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="comercial.html#form">Patrocínios</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="site-footer__title">No ar</h4>
+          <ul class="site-footer__list">
+            <li>Sábados, 10h</li>
+            <li>TV Tribuna · Band</li>
+            <li>Grande Recife</li>
+          </ul>
+        </div>
+      </div>
+      <div class="site-footer__bottom">
+        <div>© 2026 Cecilia Chaves. Todos os direitos reservados.</div>
+        <div class="site-footer__social">
+          <a href="https://instagram.com/cecilia_chaves" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="https://wa.me/5581986392033" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
